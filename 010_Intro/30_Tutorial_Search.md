@@ -142,7 +142,7 @@ GET /megacorp/employee/_search?q=last_name:Smith
 **DSL(Domain Specific Language特定领域语言)**以JSON请求体的形式出现。我们可以这样表示之前关于“Smith”的查询:
 
 ```Javascript
-GET /megacorp/employee/_search
+POST /megacorp/employee/_search
 {
     "query" : {
         "match" : {
@@ -158,7 +158,7 @@ GET /megacorp/employee/_search
 我们让搜索稍微再变的复杂一些。我们依旧想要找到姓氏为“Smith”的员工，但是我们只想得到年龄大于30岁的员工。我们的语句将添加**过滤器(filter)**,它使得我们高效率的执行一个结构化搜索：
 
 ```Javascript
-GET /megacorp/employee/_search
+POST /megacorp/employee/_search
 {
     "query" : {
         "filtered" : {
@@ -311,7 +311,7 @@ GET /megacorp/employee/_search
 让我们在之前的语句上增加`highlight`参数：
 
 ```Javascript
-GET /megacorp/employee/_search
+POST /megacorp/employee/_search
 {
     "query" : {
         "match_phrase" : {
